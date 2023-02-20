@@ -1,0 +1,49 @@
+{% extends "ProyectoTitulo/0.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="GET">
+  <div class="input-group">
+    <input type="text" class="form-controlbg-light border-0 small" placeholder="buscar..." name="buscar" value="">
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="submit">
+        <i class="fas fa-search fa-sm"></i>
+      </button>
+    </div>
+  </div>
+</form>  
+
+  <table class="table" style="color: rgb(245, 238, 238);">
+    <thead >
+      <tr >
+        <th scope="col" >Jugador</th>
+        <th scope="col">Tiros</th>
+        <th scope="col">Tiros Precisos</th>
+        <th scope="col">Pases Claves</th>
+        <th scope="col">Regates</th>
+        <th scope="col">Faltas Forzadas</th>
+        <th scope="col">Offside</th>
+        <th scope="col">Goles</th>
+        <th scope="col">Asistencias</th>
+      </tr>
+    </thead>
+    <tbody >
+        {% for ofensiva in ofensivas %}
+          <tr>
+            <th scope="row">{{ofensiva.jugador}} </th>
+            <td>{{ofensiva.tiros}}</td>
+            <td>{{ofensiva.t_preciso}}</td>
+            <td>{{ofensiva.p_clave}}</td>
+            <td>{{ofensiva.regates}}</td>
+            <td>{{ofensiva.faltas_f}}</td>
+            <td>{{ofensiva.offside}}</td>
+            <td>{{ofensiva.goles}}</td>
+            <td>{{ofensiva.asistencias}}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock %}

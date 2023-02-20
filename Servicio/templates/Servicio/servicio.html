@@ -1,0 +1,31 @@
+{% extends "ProyectoTitulo/0.html" %}
+
+{% load static %}
+
+{% block content %}
+
+  
+  <table class="table" style="color: black;">
+    <thead >
+      <tr >
+        <th scope="col" >Jugaror</th>
+        <th scope="col">Posicion</th>
+        <th scope="col">Minutos</th>
+        <th scope="col">Partido Numero</th>
+        <th scope="col">Entro de Sustituto</th>
+      </tr>
+    </thead>
+    <tbody >
+        {% for general in generales %}
+          <tr>
+            <th scope="row">{{general.jugador}} </th>
+            <td>{{general.posicion}}</td>
+            <td>{{general.minutos}}</td>
+            <td>{{general.partido}}</td>
+            <td>{{general.sustituto}}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock %}

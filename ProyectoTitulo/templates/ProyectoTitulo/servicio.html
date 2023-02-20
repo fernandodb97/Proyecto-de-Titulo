@@ -1,0 +1,41 @@
+{% extends "ProyectoTitulo/0.html" %}
+
+{% load static %}
+
+{% block content %}
+
+  <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="GET">
+    <div class="input-group">
+      <input type="text" class="form-controlbg-light border-0 small" placeholder="buscar..." name="buscar" value="">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="submit">
+          <i class="fas fa-search fa-sm"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+  
+  <table class="table" style="color: rgb(248, 245, 245);">
+    <thead >
+      <tr >
+        <th scope="col" >Jugador</th>
+        <th scope="col">Posicion</th>
+        <th scope="col">Minutos</th>
+        <th scope="col">Partido Numero</th>
+        <th scope="col">Entro de Sustituto</th>
+      </tr>
+    </thead>
+    <tbody >
+        {% for general in generales %}
+          <tr>
+            <th scope="row">{{general.jugador}} </th>
+            <td>{{general.posicion}}</td>
+            <td>{{general.minutos}}</td>
+            <td>{{general.partido}}</td>
+            <td>{{general.sustituto}}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock %}

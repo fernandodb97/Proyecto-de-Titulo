@@ -1,0 +1,50 @@
+{% extends "ProyectoTitulo/0.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="GET">
+  <div class="input-group">
+    <input type="text" class="form-controlbg-light border-0 small" placeholder="buscar..." name="buscar" value="">
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="submit">
+        <i class="fas fa-search fa-sm"></i>
+      </button>
+    </div>
+  </div>
+</form>
+  
+  <table class="table" style="color: rgb(245, 241, 241);">
+    <thead >
+      <tr >
+        <th scope="col" >Jugador</th>
+        <th scope="col">Pases</th>
+        <th scope="col">Pases Claves</th>
+        <th scope="col">Centros</th>
+        <th scope="col">Centros Precisos</th>
+        <th scope="col">Pases Largos</th>
+        <th scope="col">Pases Largos Precisos</th>
+        <th scope="col">Pases al Hueco</th>
+        <th scope="col">Pases al Hueco Precisos</th>
+      </tr>
+    </thead>
+    <tbody >
+        {% for distribucion in distribuciones %}
+          <tr>
+            <th scope="row">{{distribucion.jugador}} </th>
+            <td>{{distribucion.pases}}</td>
+            <td>{{distribucion.p_clave}}</td>
+            <td>{{distribucion.centros}}</td>
+            <td>{{distribucion.centro_preciso}}</td>
+            <td>{{distribucion.p_largo}}</td>
+            <td>{{distribucion.p_largo_preciso}}</td>
+            <td>{{distribucion.p_hueco}}</td>
+            <td>{{distribucion.p_hueco_preciso}}</td>
+
+          </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock %}

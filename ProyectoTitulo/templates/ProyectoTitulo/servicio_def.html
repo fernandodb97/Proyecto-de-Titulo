@@ -1,0 +1,43 @@
+{% extends "ProyectoTitulo/0.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="GET">
+  <div class="input-group">
+    <input type="text" class="form-controlbg-light border-0 small" placeholder="buscar..." name="buscar" value="">
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="submit">
+        <i class="fas fa-search fa-sm"></i>
+      </button>
+    </div>
+  </div>
+</form>
+
+  <table  class="table" style="color: white;">
+    <thead >
+      <tr >
+        <th scope="col" >Jugador</th>
+        <th scope="col">Entradas</th>
+        <th scope="col">Intercepciones</th>
+        <th scope="col">Despejes</th>
+        <th scope="col">Bloqueos</th>
+        <th scope="col">Faltas</th>
+      </tr>
+    </thead>
+    <tbody >
+        {% for defensiva in defensivas %}
+          <tr>
+            <th scope="row">{{defensiva.jugador}} </th>
+            <td>{{defensiva.entradas}}</td>
+            <td>{{defensiva.intercepcion}}</td>
+            <td>{{defensiva.despeje}}</td>
+            <td>{{defensiva.bloqueos}}</td>
+            <td>{{defensiva.faltas}}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock %}
